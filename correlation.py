@@ -17,7 +17,7 @@ def get_data_source(data_path):
     file_data.pop(0)
     for i in file_data:
         first_value.append(float(i[1]))
-        second_value.append(float(i[0]))
+        second_value.append(float(i[2]))
 
     return first_value, second_value
 
@@ -41,10 +41,11 @@ def plot_figure(data_path):
 
 
 def main():
-    file_path=str(input('Enter the file path whose correlation you want to find.'))
+    file_path=str(input('Enter the file path whose correlation you want to find. '))
 
     first_value, second_value = get_data_source(file_path)
     data = {'x': first_value, 'y': second_value}
+    # print(data)
     
     correlation = find_correlation(data)
     print('Correlation is {}'.format(correlation))
